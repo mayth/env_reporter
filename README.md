@@ -59,7 +59,7 @@ NOTE: they are stored in little endian.
 
 The table below shows conversions from raw value to human-readable value.
 
-|             |                                 |
+| Item        | Conversion formula              |
 | ----------- | ------------------------------- |
 | Temperature | `-45.0 + 175.0 * (x / 65535.0)` |
 | Humidity    | `100.0 * (x / 65535.0)`         |
@@ -67,8 +67,16 @@ The table below shows conversions from raw value to human-readable value.
 
 ## Interval of Advertising
 
-After powering-on
+After powering-on, this works as follows:
 
+1. measures the environment
+2. advertise for 120 seconds
+3. sleep for 480 seconds
+4. after wake-up, go (1)
+
+so, this device is activated every 10 minutes.
+You can modify the interval by changing `kInterval`, `kAdvertisingDuration` (a sleep duration is calculated from them).
+Please note that increasing advertising duration also increases power consumption.
 
 ## Acknowledgements
 
