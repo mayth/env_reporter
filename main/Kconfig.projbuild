@@ -1,0 +1,49 @@
+menu "Environment Reporter Configuration"
+
+    choice ER_SHT3X_ADDRESS
+        prompt "SHT3x I2C Address"
+        default ER_SHT3X_ADDR_44
+
+    config ER_SHT3X_ADDR_44
+        bool "Address 0x44"
+
+    config ER_SHT3X_ADDR_45
+        bool "Address 0x45"
+
+    endchoice
+
+    config ER_WIFI_SSID
+        string "WiFi SSID"
+        help
+            SSID (network name) for the app connect to.
+
+    config ER_WIFI_PWD
+        string "WiFi Password"
+        help
+            WiFi password for the app to use.
+
+    config ER_WIFI_MAX_RETRY
+        int "Maximum retries for WiFi connection"
+        default 5
+        help
+            Set the maximum retries to avoid station reconnection to the AP unlimited when the AP is really inexistent.
+
+    config ER_WIFI_COUNTRY
+        string "Country Code"
+        default "JP"
+        help
+            Where this app runs. 2-letter country code (e.g. JP, EN).
+
+    config ER_SNTP_SERVER
+        string "SNTP Server"
+        default "pool.ntp.org"
+        help
+            SNTP server.
+
+    config ER_SNTP_MAX_RETRY
+        int "Maximum retries for SNTP time adjustment"
+        default 5
+        help
+            Set the maximum retries for time adjustment using SNTP.
+
+endmenu
