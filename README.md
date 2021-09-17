@@ -78,6 +78,12 @@ so, this device is activated every 10 minutes.
 You can modify the interval by changing `kInterval`, `kAdvertisingDuration` (a sleep duration is calculated from them).
 Please note that increasing advertising duration also increases power consumption.
 
+
+## Observer
+
+Observer example: [env_scanner](https://github.com/mayth/env_scanner)
+
+
 ## Acknowledgements
 
 * Codes to establish connection to Wi-Fi AP is based on ESP-IDF example: https://github.com/espressif/esp-idf/tree/master/examples/wifi/getting_started/station
